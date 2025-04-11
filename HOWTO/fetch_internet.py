@@ -76,6 +76,7 @@ def get_interaction_id():
 
 
 def ask_chat(interaction_id: str):
+    start_time = time.time()
     result = None
     headers = {
         "X-APP-VERSION": os.getenv("X_APP_VERSION"),
@@ -99,6 +100,8 @@ def ask_chat(interaction_id: str):
     output_file = os.path.join(current_dir, "HOWTO/chat_results.txt")
     with open(output_file, "a") as f:
         f.write(log_line)
+        
+    print(f"****************: {time.time() - start_time}")
 
     return result.get("answer")
 
@@ -136,34 +139,63 @@ def ask_chatbot_promotores(interaction_id: str):
 
     return result.get("answer")
 
+def ask_chat_lite(interaction_id: str):
+    start_time = time.time()
+    result = None
+    headers = {
+        "X-APP-VERSION": os.getenv("X_APP_VERSION"),
+        "X-API-KEY": os.getenv("X_API_KEY"),
+        "Content-Type": "application/json",
+    }
+    body = {"interaction_id": interaction_id, "question": random.choice(question_list)}
+
+    data = json.dumps(body).encode("utf-8")
+    url_interaction = urllib.request.Request(
+        os.getenv("URL_LITE"), data=data, headers=headers
+    )
+    with urllib.request.urlopen(url_interaction) as response:
+        result = json.loads(response.read().decode("utf-8"))
+    question = body.get("question")
+    answer = result.get("answer")
+    log_line = (
+        f"Interaction_id: {interaction_id} - Question: {question} - Answer: {answer}\n"
+    )
+    current_dir = os.getcwd()
+    output_file = os.path.join(current_dir, "HOWTO/lite_results.txt")
+    with open(output_file, "a") as f:
+        f.write(log_line)
+    
+    print(f"****************: {time.time() - start_time}")
+
+    return result.get("answer")
 
 async def main():
-    # loop = asyncio.get_running_loop()
-    # with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
-    #     tasks = [loop.run_in_executor(executor, get_interaction_id) for _ in range(10)]
-    #     _ = await asyncio.gather(*tasks)
-
-    # loop_chat = asyncio.get_running_loop()
-
-    # print(interaction_ids)
-    # with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
-    #     chat_tasks = [
-    #         loop_chat.run_in_executor(
-    #             executor, functools.partial(ask_chat, interaction)
-    #         )
-    #         for interaction in interaction_ids
-    #     ]
-    #     _ = await asyncio.gather(*chat_tasks)
+    loop = asyncio.get_running_loop()
+    with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
+        tasks = [loop.run_in_executor(executor, get_interaction_id) for _ in range(5)]
+        _ = await asyncio.gather(*tasks)
 
     loop_chat = asyncio.get_running_loop()
+
+    print(interaction_ids)
     with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
         chat_tasks = [
             loop_chat.run_in_executor(
-                executor, functools.partial(ask_chatbot_promotores, interaction)
+                executor, functools.partial(ask_chat_lite, interaction)
             )
-            for interaction in set_interactions_ids
+            for interaction in interaction_ids
         ]
         _ = await asyncio.gather(*chat_tasks)
+
+    # loop_chat = asyncio.get_running_loop()
+    # with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
+    #     chat_tasks = [
+    #         loop_chat.run_in_executor(
+    #             executor, functools.partial(ask_chatbot_promotores, interaction)
+    #         )
+    #         for interaction in set_interactions_ids
+    #     ]
+    #     _ = await asyncio.gather(*chat_tasks)
 
 
 asyncio.run(main())
