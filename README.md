@@ -31,6 +31,24 @@ A complete guide to learn, implement and development well python code.
 
 ## Sequences
 
+* Sequences
+    * Container: Different types
+    * Flat: Same tipe and you can use `array` module
+    * Mutable: You can change the content
+    * Immutable: You can not change the content
+* `collections.abc` provides the abstract base classes to implement functions for python containers
+* listcomp is better than `map` and `filter`
+* Remember: you can use `genexp`
+* Tuples are no just Immutable Lists
+* Tuples as records
+* Unpack information and match cases like Elixir are best practices
+* `slice` is useful to slice items
+* Be careful using `+`, `+=`, and `*` in Sequences, the behaivor can change.
+* `import dis` and use `dis.dis()` give you a good way to analyze some operations
+* `import timeit` and use `timeit.repeat()` can help you to test code snippets
+* Remember the key differences between `sort` and `list.sort`
+* `collections.deque` and `collections` module (in general) are a good way to perform operations over `collections` 
+
 ## Dictionaries and Sets
 
 ## Important modules
