@@ -51,7 +51,31 @@ A complete guide to learn, implement and development well python code.
 
 ## Dictionaries and Sets
 
+* dict comprehension is key in all aspects
+* `**dict_var` to unpack dicts
+* `d1 | d2` to merge dicts
+* Also you can use Match operations
+* The UML information:
+    * Collections
+    * Mapping
+    * MutableMapping
+* Hashable is an object that has hash code which never changes during its lifetime:
+    * `__hash__`
+    * `__eq__`
+* `__missing__` is a deep way to works with `d.get('any', None)`
+* The basic use case for sets is remove duplicatation
+* Sets work as math sets with operation like:
+    * union |
+    * intersection &
+    * difference -
+    * symmetric difference ^
+
+
 ## Important modules
 
 * collections: it has some common options to manage built-in containers like list, sets, dicts, and tuples
+    * `collections.OrderedDict`
+    * `collections.ChainMap`
+    * `collections.Counter`
+    * `collections.UserDict`: To create your own `dict` classes
 * random: some operations to create random options
