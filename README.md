@@ -70,6 +70,23 @@ A complete guide to learn, implement and development well python code.
     * difference -
     * symmetric difference ^
 
+## Unicode vs Bytes
+
+* In general bytes has less size than Unicode
+* `bytes`: This is an immutable sequence of bytes
+* `bytearray`: This is a mutable sequence of bytes
+* Basic encoders:
+    * ascii
+    * latin1
+    * cp1252
+    * cp437
+    * gb2312
+    * utf-8
+    * utf-16le
+* The Unicode sandwich:
+    * bytes -> str
+    * 100% str
+    * str -> bytes
 
 ## Important modules
 
