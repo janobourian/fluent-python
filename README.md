@@ -95,7 +95,19 @@ A complete guide to learn, implement and development well python code.
 * Also you can use `typing.NamedTuple` to inheritance
 * `dataclass` is not immutable, for that reason you have to use `frozen=True`
 * `__annotations__` is useful when you have the type hints
-* `__doc__` to work with the docs  
+* `__doc__` to work with the docs
+
+## Object references, mutability, and Recycling
+
+* Variables are labels, not boxes.
+* Aliasing: two variables bound to the same object.
+* `==` comparaissons
+* `is` to check the identities
+* To (shallow) copy list you should use `c = list(a)`
+* `copy()` to shallow and `deepcopy()` for deep copy.
+* The only mode of parameter passing in Python is call by sharing 
+* Mutable types as parameter defaults: Bad Idea
+* Objects are never explicity destroyed; however, when they become unreachable they may be garbage-collected
 
 ## Important modules
 
