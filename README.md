@@ -88,6 +88,15 @@ A complete guide to learn, implement and development well python code.
     * 100% str
     * str -> bytes
 
+## Dataclass builders
+
+* If your classes do not have `__repr__` or `__eq__` method it will not be clearly
+* If your classes do not have `__eq__` you can not compare `==` objects because the comparaison will be over the `id`
+* Also you can use `typing.NamedTuple` to inheritance
+* `dataclass` is not immutable, for that reason you have to use `frozen=True`
+* `__annotations__` is useful when you have the type hints
+* `__doc__` to work with the docs  
+
 ## Important modules
 
 * collections: it has some common options to manage built-in containers like list, sets, dicts, and tuples
@@ -96,3 +105,5 @@ A complete guide to learn, implement and development well python code.
     * `collections.Counter`
     * `collections.UserDict`: To create your own `dict` classes
 * random: some operations to create random options
+* typing
+* dataclasses
