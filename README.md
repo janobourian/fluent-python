@@ -97,6 +97,18 @@ A complete guide to learn, implement and development well python code.
 * `__annotations__` is useful when you have the type hints
 * `__doc__` to work with the docs
 
+## Object references, mutability, and Recycling
+
+* Variables are labels, not boxes.
+* Aliasing: two variables bound to the same object.
+* `==` comparaissons
+* `is` to check the identities
+* To (shallow) copy list you should use `c = list(a)`
+* `copy()` to shallow and `deepcopy()` for deep copy.
+* The only mode of parameter passing in Python is call by sharing 
+* Mutable types as parameter defaults: Bad Idea
+* Objects are never explicity destroyed; however, when they become unreachable they may be garbage-collected
+
 ## Functions ad First-Class Objects
 
 * Higher-Order Function is a function that takes a function as an argument or returns a function as the result.
@@ -111,18 +123,12 @@ A complete guide to learn, implement and development well python code.
     * Native coroutine functions
     * Asyncronous generator functions
 
+## Type Hints
 
-## Object references, mutability, and Recycling
-
-* Variables are labels, not boxes.
-* Aliasing: two variables bound to the same object.
-* `==` comparaissons
-* `is` to check the identities
-* To (shallow) copy list you should use `c = list(a)`
-* `copy()` to shallow and `deepcopy()` for deep copy.
-* The only mode of parameter passing in Python is call by sharing 
-* Mutable types as parameter defaults: Bad Idea
-* Objects are never explicity destroyed; however, when they become unreachable they may be garbage-collected
+* Python is gradual typing in practice
+* `flake8`, `blue`, and `black` are good options to enhance your code
+* duck typing in runtime
+* normal typing in compile-time
 
 ## Important modules
 
@@ -136,3 +142,4 @@ A complete guide to learn, implement and development well python code.
 * dataclasses
 * functools: several higher order functions
 * operator: intrinsic operators in Python
+* typing
