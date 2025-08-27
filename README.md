@@ -97,6 +97,21 @@ A complete guide to learn, implement and development well python code.
 * `__annotations__` is useful when you have the type hints
 * `__doc__` to work with the docs
 
+## Functions ad First-Class Objects
+
+* Higher-Order Function is a function that takes a function as an argument or returns a function as the result.
+* The nine Flavors of Callable Objects:
+    * User-defined functions
+    * Built-in functions
+    * Built-in methods
+    * Methods
+    * Classes
+    * Class instances with a `__call__()` method
+    * Generator functions
+    * Native coroutine functions
+    * Asyncronous generator functions
+
+
 ## Object references, mutability, and Recycling
 
 * Variables are labels, not boxes.
@@ -119,3 +134,5 @@ A complete guide to learn, implement and development well python code.
 * random: some operations to create random options
 * typing
 * dataclasses
+* functools: several higher order functions
+* operator: intrinsic operators in Python
