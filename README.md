@@ -130,6 +130,13 @@ A complete guide to learn, implement and development well python code.
 * duck typing in runtime
 * normal typing in compile-time
 
+## Decorators and Closures
+
+* The function decorators are executed as soon as the module is imported, but the decorated functions only run when they are explicitly invoked.
+* It is so important respect `nonlocal` variables and be carefull when and where the var is assigned
+* The basic decorators does not support `**kwargs`
+* To solve the not `**keywords` argument we can use `functools`
+
 ## Important modules
 
 * collections: it has some common options to manage built-in containers like list, sets, dicts, and tuples
