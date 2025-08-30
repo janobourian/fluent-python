@@ -138,6 +138,10 @@ A complete guide to learn, implement and development well python code.
 * To solve the not `**keywords` argument we can use `functools`
 * If you will work using recursivity consider to use `@functools.cache`
 
+## Design Patterns
+* Strategy pattern is a good point to start
+* Command pattern
+
 ## Important modules
 
 * collections: it has some common options to manage built-in containers like list, sets, dicts, and tuples
