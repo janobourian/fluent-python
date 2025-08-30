@@ -136,6 +136,7 @@ A complete guide to learn, implement and development well python code.
 * It is so important respect `nonlocal` variables and be carefull when and where the var is assigned
 * The basic decorators does not support `**kwargs`
 * To solve the not `**keywords` argument we can use `functools`
+* If you will work using recursivity consider to use `@functools.cache`
 
 ## Important modules
 
