@@ -142,6 +142,13 @@ A complete guide to learn, implement and development well python code.
 * Strategy pattern is a good point to start
 * Command pattern
 
+## Iterables, iterators, generators and coroutines
+
+* Sequence are iterable by the iter Function and the `__getitem__` method
+* Objects implementing an `__iter__` method returning an iterator are iterable
+* Python obtains iterators from iterables
+* Iterable class has `__iter__` and Iterator class has `__next__` and `__iter__`
+
 ## Important modules
 
 * collections: it has some common options to manage built-in containers like list, sets, dicts, and tuples
